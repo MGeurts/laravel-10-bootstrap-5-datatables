@@ -4,13 +4,15 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_developer',
     ];
 
     /**
@@ -41,4 +44,47 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Mutators (SET) Attribute
+    /* -------------------------------------------------------------------------------------------- */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value ? ucwords($value) : null;
+    }
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = app('hash')->needsRehash($value) ? Hash::make($value) : $value;
+    }
+    /* -------------------------------------------------------------------------------------------- */
+    // Accessors (GET) Attribute (APPENDED)
+    /* -------------------------------------------------------------------------------------------- */
+    public function getIsDeveloperAttribute()
+    {
+        return $this->attributes['is_developer'] == 1;
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Accessors (GET) Attribute
+    /* -------------------------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Overrides
+    /* -------------------------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Relationships
+    /* -------------------------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Actions
+    /* -------------------------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Functions
+    /* -------------------------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Construction
+    /* -------------------------------------------------------------------------------------------- */
 }

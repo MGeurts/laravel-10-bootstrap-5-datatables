@@ -1,0 +1,70 @@
+/* -------------------------------------------- */
+@media print {
+    .small-print {
+        font-size: 75%;
+    }
+}
+
+/* -------------------------------------------- */
+@media screen,
+print {
+    body {
+        padding-top: 4.5rem;
+        //background-color: transparent;
+        color: $text;
+        background-color: #ffffff !important;
+    }
+
+    .navbar {
+        box-shadow: 0 5px 10px 0 rgba(204, 204, 204, 0.3);
+        //margin-bottom: 40px;
+    }
+
+    .card {
+        box-shadow: 0 5px 10px 0 rgba(204, 204, 204, 0.8);
+    }
+
+    hr.narrow {
+        margin-top: 0;
+        margin-bottom: ($spacer * .5);
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    hr.narrow2 {
+        margin-block-start: 0.25em;
+        margin-block-end: 0.25em;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .offcanvas {
+        width: 250px;
+    }
+
+    /* -------------------------------------------- */
+    #toast-container>div {
+        opacity: 1 !important;
+    }
+
+    /* -------------------------------------------- */
+    table.mytable {
+        box-sizing: border-box;
+        border-collapse: collapse;
+        font-size: .8rem;
+        width: 100% !important
+    }
+
+    table.mytable thead th {
+        padding: 0.2rem;
+    }
+
+    table.mytable tbody td {
+        padding: 0.2rem;
+    }
+
+    /* -------------------------------------------- */
+
+}
