@@ -1,9 +1,10 @@
-/* ------------------------------------------------------------------------ */
+/* -------------------------------------------- */
 table.dataTable {
     box-sizing: border-box;
     border-collapse: collapse;
     font-size: .8rem;
-    width: 100% !important
+    width: 100% !important;
+    margin-bottom: 0px !important;
 }
 
 table.dataTable thead th {
@@ -14,14 +15,13 @@ table.dataTable tbody td {
     padding: 0.2rem;
 }
 
-.dataTables_wrapper.no-footer .dataTables_scrollBody {
-    border-bottom: 1px solid #c8ced3;
+table.dataTable tbody td.dataTables_empty {
+    padding: 1rem;
+    text-align: left;
 }
 
-table.dataTable thead .sorting,
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc {
-    background-image: none;
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+    border-bottom: 1px solid #c8ced3;
 }
 
 .dataTables_info,
@@ -34,5 +34,20 @@ table.dataTable thead .sorting_desc {
 .has-error .invalid-feedback {
     display: block !important;
 }
-
-/* ------------------------------------------------------------------------ */
+/* -------------------------------------------- */
+table.dataTable > tbody > tr.selected > * {
+  box-shadow: inset 0 0 0 9999px rgba(92, 169, 229, 0.9);
+}
+table.dataTable.table-striped > tbody > tr.odd > * {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.05);
+}
+table.dataTable.table-striped > tbody > tr.odd.selected > * {
+  box-shadow: inset 0 0 0 9999px rgba(92, 169, 229, 0.95);
+}
+table.dataTable.table-hover > tbody > tr:hover > * {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.075);
+}
+table.dataTable.table-hover > tbody > tr.selected:hover > * {
+  box-shadow: inset 0 0 0 9999px rgba(92, 169, 229, 0.975);
+}
+/* -------------------------------------------- */

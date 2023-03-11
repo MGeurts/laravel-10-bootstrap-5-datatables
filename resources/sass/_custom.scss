@@ -1,10 +1,25 @@
 /* -------------------------------------------- */
+@page {
+    // size: portrait;
+    margin: 1cm;
+    marks: none;
+}
+/* -------------------------------------------- */
 @media print {
-    .small-print {
-        font-size: 75%;
+    a:link {
+        border-bottom: none !important;
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+
+    hr {
+        opacity: 1 !important;
     }
 }
-
 /* -------------------------------------------- */
 @media screen,
 print {
@@ -12,16 +27,11 @@ print {
         padding-top: 4.5rem;
         //background-color: transparent;
         color: $text;
-        background-color: #ffffff !important;
     }
 
     .navbar {
         box-shadow: 0 5px 10px 0 rgba(204, 204, 204, 0.3);
         //margin-bottom: 40px;
-    }
-
-    .card {
-        box-shadow: 0 5px 10px 0 rgba(204, 204, 204, 0.8);
     }
 
     hr.narrow {
@@ -40,21 +50,24 @@ print {
         margin-left: 0;
     }
 
+    hr.dotted {
+        border-bottom: 1px dotted;
+    }
+
     .offcanvas {
         width: 250px;
     }
-
     /* -------------------------------------------- */
     #toast-container>div {
         opacity: 1 !important;
     }
-
     /* -------------------------------------------- */
-    table.mytable {
+        table.mytable {
         box-sizing: border-box;
         border-collapse: collapse;
         font-size: .8rem;
-        width: 100% !important
+        width: 100% !important;
+        margin-bottom: 0px !important;
     }
 
     table.mytable thead th {
@@ -64,7 +77,5 @@ print {
     table.mytable tbody td {
         padding: 0.2rem;
     }
-
     /* -------------------------------------------- */
-
 }

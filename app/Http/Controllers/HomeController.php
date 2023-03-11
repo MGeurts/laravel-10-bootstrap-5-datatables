@@ -29,16 +29,16 @@ class HomeController extends Controller
             }
 
             if (session('status')) {
-                return view('backend.home')->with('status', session('status'));
+                return view('back.home')->with('status', session('status'));
             }
 
-            return view('backend.home');
+            return view('back.home');
         } else {
             if (session('status')) {
-                return view('frontend.home')->with('status', session('status'));
+                return view('front.home')->with('status', session('status'));
             }
 
-            return view('frontend.home');
+            return view('front.home');
         }
     }
 }
